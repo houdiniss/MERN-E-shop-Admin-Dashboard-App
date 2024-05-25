@@ -50,7 +50,7 @@ app.use("/sales" , salesRoutes);
 /*  MONGOOSE SETUP  */
 const PORT = 5001 || 9000 ;
 
-mongoose.connect("mongodb+srv://giorgosmintis:giorgosgew@cluster0.jhmjqpa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
+mongoose.connect(/* Add your connection string  here */).then(() => {
   app.listen(PORT , () => console.log(`Server Connected to Port ${PORT}`));
 
 

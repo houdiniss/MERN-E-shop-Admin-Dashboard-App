@@ -17,7 +17,7 @@ import Product from "./models/Product.js";
 import Transaction from "./models/Transaction.js";
 import ProductStat from "./models/ProductStat.js";
 import OverallStat from "./models/OverallStat.js";
-// import AffiliateStat from "./models/AffiliateStat.js";
+import AffiliateStat from "./models/AffiliateStat.js";
 import {
   dataUser,
   dataProduct,
@@ -48,19 +48,23 @@ app.use("/sales" , salesRoutes);
 
 
 /*  MONGOOSE SETUP  */
-const PORT = process.env.PORT || 9000 ;
+const PORT = 5001 || 9000 ;
 
-mongoose.connect(process.env.MONGO_URL).then(() => {
+mongoose.connect("mongodb+srv://giorgosmintis:giorgosgew@cluster0.jhmjqpa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
   app.listen(PORT , () => console.log(`Server Connected to Port ${PORT}`));
 
 
   /* ONLY ADD DATA ONE TIME */
-  // User.insertMany(dataUser);
-  // Product.insertMany(dataProduct);
-  // ProductStat.insertMany(dataProductStat);
-  // Transaction.insertMany(dataTransaction);
-  // OverallStat.insertMany(dataOverallStat);
-  //AffiliateStat.insertMany(dataAffiliateStat);
+  /* ONCE THE SERVER IS CONNECTED WITH MONGODB FOR THE FIRST TIME,YOU NEED TO COMMENT OUT THE CODE BELOW */
+  /* IF FOR SOME REASON YOU RESTARTED THE SERVER WITHOUT COMMENTING OUT THE CODE BELOW,YOU WILL HAVE TO  */
+  /* DROP THE DATABASE AND RESTART THE SERVER ONCE AGAIN */
+
+  User.insertMany(dataUser);   //comment out
+  Product.insertMany(dataProduct);    //comment out
+  ProductStat.insertMany(dataProductStat);    //comment out
+  Transaction.insertMany(dataTransaction);    //comment out
+  OverallStat.insertMany(dataOverallStat);    //comment out
+  AffiliateStat.insertMany(dataAffiliateStat);    //comment out
 }).catch(
     (err) => console.log(`${err} Server did not Connect`)
   );

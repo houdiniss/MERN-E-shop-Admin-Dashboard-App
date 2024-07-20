@@ -12,20 +12,20 @@ import salesRoutes from "./routes/sales.js";
 
 
 // DATA IMPORTS
-import User from "./models/User.js";
-import Product from "./models/Product.js";
-import Transaction from "./models/Transaction.js";
-import ProductStat from "./models/ProductStat.js";
-import OverallStat from "./models/OverallStat.js";
-import AffiliateStat from "./models/AffiliateStat.js";
-import {
-  dataUser,
-  dataProduct,
-  dataProductStat,
-  dataTransaction,
-  dataOverallStat,
-  dataAffiliateStat
-} from "./data/index.js";
+// import User from "./models/User.js";
+// import Product from "./models/Product.js";
+// import Transaction from "./models/Transaction.js";
+// import ProductStat from "./models/ProductStat.js";
+// import OverallStat from "./models/OverallStat.js";
+// import AffiliateStat from "./models/AffiliateStat.js";
+// import {
+//   dataUser,
+//   dataProduct,
+//   dataProductStat,
+//   dataTransaction,
+//   dataOverallStat,
+//   dataAffiliateStat
+// } from "./data/index.js";
 
 
 /*  CONFIGURATION  */ 
@@ -48,7 +48,7 @@ app.use("/sales" , salesRoutes);
 
 
 /*  MONGOOSE SETUP  */
-const PORT = process.env.PORT || 9000 ;
+const PORT = 5001 || 9000 ;
 
 mongoose.connect(process.env.MONGO_URL).then(() => {
   app.listen(PORT , () => console.log(`Server Connected to Port ${PORT}`));
@@ -60,7 +60,7 @@ mongoose.connect(process.env.MONGO_URL).then(() => {
   // ProductStat.insertMany(dataProductStat);
   // Transaction.insertMany(dataTransaction);
   // OverallStat.insertMany(dataOverallStat);
-  // AffiliateStat.insertMany(dataAffiliateStat);
+  //AffiliateStat.insertMany(dataAffiliateStat);
 }).catch(
     (err) => console.log(`${err} Server did not Connect`)
   );

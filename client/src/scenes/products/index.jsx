@@ -77,7 +77,7 @@ const Product = ({
       </Collapse>
     </Card>
   )
-}
+};
 
 
 
@@ -88,6 +88,7 @@ function Products() {
   const { data , isLoading } = useGetProductsQuery();
   console.log("data:", data)
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
+
 
   return (
     <Box m="1.5rem 2.5rem">

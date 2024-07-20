@@ -1,7 +1,6 @@
 import React from "react";
 import {
   GridColumnMenu,
-  GridColumnMenuFilterItem
 }
 from "@mui/x-data-grid";
 
